@@ -1,8 +1,6 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
 import CompanionCard from "@/components/companioncard";
 import CompanionsList from "@/components/companionslist";
-import CTA from "@/components/cta";
+import Cta from "@/components/cta";
 import { recentSessions } from "@/constants";
 import {
   getAllCompanions,
@@ -10,12 +8,13 @@ import {
 } from "@/lib/actions/companion.actions";
 import { getSubjectColor } from "@/lib/utils";
 
-const Home = async () => {
+const Page = async () => {
   const companions = await getAllCompanions({ limit: 3 });
   const recentSessionsCompanions = await getRecentSessions(10);
+
   return (
-    <div>
-      <h1 className="text-2xl underline">Welcome to SaaS App</h1>
+    <main>
+      <h1>Popular Companions</h1>
 
       <section className="home-section">
         {companions.map((companion) => (
@@ -29,14 +28,14 @@ const Home = async () => {
 
       <section className="home-section">
         <CompanionsList
-          title="recently completed sessions"
+          title="Recently completed sessions"
           companions={recentSessionsCompanions}
           classNames="w-2/3 max-lg:w-full"
         />
-        <CTA />
+        <Cta />
       </section>
-    </div>
+    </main>
   );
 };
 
-export default Home;
+export default Page;
