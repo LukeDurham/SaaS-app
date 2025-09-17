@@ -112,5 +112,4 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
 
-  <img src="public/readme/jsmpro.jpg" alt="Project Banner">
 </a>
